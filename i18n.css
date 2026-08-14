@@ -1,0 +1,50 @@
+/* ================= i18n: language switch (EN / DE / AR) ================= */
+
+/* Translatable text is wrapped in custom elements <i18n-en>/<i18n-de>/<i18n-ar> rather
+   than <span class="..."> on purpose: several page-specific rules target bare "span" via
+   descendant selectors (e.g. ".wordmark span{display:block}"). A custom tag name never
+   matches those selectors, so the site's existing CSS can't accidentally show/hide or
+   re-style the wrong language variant. Unknown elements are inline by default. */
+i18n-de, i18n-ar{ display:none; }
+html[data-lang="de"] i18n-en{ display:none; }
+html[data-lang="de"] i18n-de{ display:inline; }
+html[data-lang="ar"] i18n-en{ display:none; }
+html[data-lang="ar"] i18n-ar{ display:inline; }
+
+.nav-cluster{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+
+.lang-switch{
+  display:flex; gap:2px;
+  background:var(--glass-strong); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border); border-radius:100px; padding:5px;
+  box-shadow:0 4px 16px rgba(46,43,39,0.06);
+}
+.lang-switch button{
+  font-family:var(--mono); font-weight:600; font-size:11.5px; letter-spacing:0.03em;
+  color:var(--ink-soft); padding:8px 13px; border-radius:100px; border:none; background:transparent;
+  cursor:pointer; transition:all .2s ease;
+}
+.lang-switch button:hover{ color:var(--ink); background:rgba(46,43,39,0.05); }
+.lang-switch button.active{ color:#fff; background:var(--orange); }
+
+/* ---------- RTL (Arabic) adjustments ---------- */
+html[dir="rtl"] body{ direction:rtl; }
+html[dir="rtl"] .mono, html[dir="rtl"] code, html[dir="rtl"] pre{ direction:ltr; unicode-bidi:embed; }
+
+/* Keep purely numeric/stat figures and code-like mono labels reading left-to-right even inside RTL flow */
+html[dir="rtl"] .stat-card .num,
+html[dir="rtl"] .k, html[dir="rtl"] .label,
+html[dir="rtl"] .rep-num,
+html[dir="rtl"] .doc-meta p,
+html[dir="rtl"] .diagram-caption,
+html[dir="rtl"] .footer-links,
+html[dir="rtl"] .site-footer p{
+  direction:rtl;
+}
+
+/* Table + result numbers: keep legible, right-align headers/cells naturally flip via dir=rtl already */
+html[dir="rtl"] .result-table th, html[dir="rtl"] .result-table td{ text-align:right; }
+
+@media (max-width:680px){
+  .nav-cluster{ width:100%; justify-content:space-between; }
+}

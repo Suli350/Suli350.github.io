@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-title-ar="الخبرة — Sulaiman Al-Akabri" data-title-de="Erfahrung — Sulaiman Al-Akabri" data-title-en="Experience — Sulaiman Al-Akabri">Experience — Sulaiman Al-Akabri</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --bg1:#ECEBE9;
+  --bg2:#FBE2C4;
+  --glass:rgba(255,255,255,0.55);
+  --glass-strong:rgba(255,255,255,0.72);
+  --glass-border:rgba(255,255,255,0.75);
+  --ink:#2E2B27;
+  --ink-soft:#686155;
+  --ink-mute:#9A9184;
+  --orange:#E68F52;
+  --orange-deep:#D97A38;
+  --orange-tint:rgba(230,143,82,0.14);
+  --line:rgba(46,43,39,0.10);
+  --display:'Outfit', system-ui, sans-serif;
+  --sans:'Inter', system-ui, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:linear-gradient(150deg, var(--bg1) 0%, #F3EDE4 45%, var(--bg2) 100%);
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  position:relative;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+/* floating glass orbs for depth */
+body::before, body::after{
+  content:'';
+  position:fixed;
+  border-radius:50%;
+  filter:blur(70px);
+  z-index:0;
+  pointer-events:none;
+}
+body::before{
+  width:520px;height:520px;
+  background:radial-gradient(circle, rgba(230,143,82,0.35), transparent 70%);
+  top:-140px; right:-120px;
+}
+body::after{
+  width:460px;height:460px;
+  background:radial-gradient(circle, rgba(160,168,180,0.30), transparent 70%);
+  bottom:-100px; left:-140px;
+}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--orange);color:#fff;}
+a:focus-visible, button:focus-visible{outline:2px solid var(--orange-deep);outline-offset:3px;border-radius:4px;}
+.wrap{max-width:920px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+
+/* ---------- GLASS PANEL BASE ---------- */
+.glass{
+  background:var(--glass);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  border:1px solid var(--glass-border);
+  border-radius:20px;
+  box-shadow:0 8px 32px rgba(46,43,39,0.07), inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* ---------- HEADER / NAV ---------- */
+.site-header{position:sticky;top:0;z-index:40;padding:22px 0;}
+.site-header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.wordmark{
+  font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-0.01em;
+  background:var(--glass-strong);backdrop-filter:blur(16px);border:1px solid var(--glass-border);
+  padding:10px 18px;border-radius:14px;box-shadow:0 4px 16px rgba(46,43,39,0.06);
+}
+.wordmark span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;color:var(--ink-mute);text-transform:uppercase;margin-top:4px;font-weight:400;}
+.site-nav{
+  display:flex;gap:2px;
+  background:var(--glass-strong);backdrop-filter:blur(16px);border:1px solid var(--glass-border);
+  border-radius:100px;padding:5px;box-shadow:0 4px 16px rgba(46,43,39,0.06);
+}
+.site-nav a{
+  font-family:var(--sans);font-weight:500;font-size:13.5px;color:var(--ink-soft);
+  padding:9px 16px;border-radius:100px;transition:all .2s ease;
+}
+.site-nav a:hover{color:var(--ink);background:rgba(46,43,39,0.05);}
+.site-nav a.active{color:#fff;background:var(--orange);}
+@media (max-width:680px){.site-nav{flex-wrap:wrap;border-radius:16px;}}
+
+/* ---------- NAV DROPDOWN ---------- */
+.nav-dropdown{position:relative;display:flex;}
+.nav-dropdown::after{
+  content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  width:220px;height:14px;
+}
+.nav-dropdown-menu{
+  position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  min-width:200px;
+  background:var(--glass-strong);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);border-radius:14px;padding:8px;
+  box-shadow:0 8px 24px rgba(46,43,39,0.14);
+  display:none;flex-direction:column;gap:2px;z-index:50;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{display:flex;}
+.nav-dropdown-menu a{
+  font-family:var(--sans);font-weight:500;font-size:13px;color:var(--ink-soft);
+  padding:9px 14px;border-radius:10px;transition:all .15s ease;white-space:nowrap;
+}
+.nav-dropdown-menu a:hover{color:var(--ink);background:rgba(46,43,39,0.06);}
+
+/* ---------- FOOTER ---------- */
+.site-footer{padding:36px 0 56px;margin-top:80px;}
+.site-footer .glass{padding:22px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.site-footer p{font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
+.footer-links{display:flex;gap:20px;font-family:var(--sans);font-size:13px;color:var(--ink-soft);font-weight:500;}
+.footer-links a:hover{color:var(--orange-deep);}
+
+/* ---------- LABELS ---------- */
+.label{
+  font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--orange-deep);display:flex;align-items:center;gap:10px;
+}
+.label .line{width:28px;height:1px;background:var(--orange-deep);opacity:0.5;}
+.rule{height:1px;background:var(--line);border:none;}
+
+/* ---------- PAGE HERO ---------- */
+.page-hero{padding:56px 0 48px;position:relative;z-index:1;}
+.page-hero h1{
+  font-family:var(--display);font-weight:700;font-size:clamp(30px,4.8vw,46px);
+  letter-spacing:-0.02em;line-height:1.12;margin-top:16px;max-width:700px;color:var(--ink);
+}
+.page-hero .intro{margin-top:18px;max-width:580px;color:var(--ink-soft);font-size:16px;}
+
+/* ---------- SECTIONS ---------- */
+section{padding:52px 0;position:relative;z-index:1;}
+.sec-head{margin-bottom:32px;}
+.sec-head h2{font-family:var(--display);font-weight:700;font-size:clamp(21px,2.6vw,27px);margin-top:10px;letter-spacing:-0.01em;}
+
+/* ---------- HOME HERO ---------- */
+.home-hero{padding:44px 0 20px;position:relative;z-index:1;}
+.pull-quote{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(26px,4.6vw,44px);line-height:1.18;letter-spacing:-0.02em;
+  max-width:760px;margin-top:18px;color:var(--ink);
+}
+.pull-quote .accent{color:var(--orange-deep);}
+.home-hero .role{font-family:var(--mono);font-size:13px;color:var(--ink-mute);letter-spacing:0.03em;margin-top:22px;}
+.home-hero .role strong{color:var(--ink);font-weight:600;}
+.home-hero .desc{margin-top:20px;max-width:590px;color:var(--ink-soft);font-size:16px;}
+.hero-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.btn{
+  font-family:var(--sans);font-weight:600;font-size:14px;
+  padding:13px 24px;border-radius:100px;transition:all .2s ease;
+}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 6px 20px rgba(230,143,82,0.35);}
+.btn-primary:hover{background:var(--orange-deep);transform:translateY(-1px);}
+.btn-ghost{color:var(--ink-soft);background:var(--glass-strong);backdrop-filter:blur(16px);border:1px solid var(--glass-border);}
+.btn-ghost:hover{color:var(--ink);}
+
+/* ---------- FIGURE ---------- */
+.figure{margin-top:52px;padding:26px;}
+.figure svg{width:100%;height:auto;display:block;}
+.figure-cap{
+  font-family:var(--display);font-weight:600;font-size:14px;color:var(--ink);
+  margin-top:16px;
+}
+.figure-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px;}
+.interactive-figure{margin-top:0;padding:22px;}
+.figure-desc{
+  font-family:var(--sans);font-size:12.5px;color:var(--ink-mute);
+  margin-top:6px;line-height:1.6;max-width:340px;
+}
+@media (max-width:760px){.figure-grid{grid-template-columns:1fr;}}
+
+/* ---------- STAT ROW ---------- */
+.stat-row{display:flex;margin-top:22px;padding:6px;}
+.stat{flex:1;padding:20px 18px;text-align:left;}
+.stat .n{font-family:var(--display);font-weight:700;font-size:clamp(22px,3vw,30px);color:var(--orange-deep);}
+.stat .l{font-family:var(--mono);font-size:10px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:0.05em;margin-top:6px;}
+@media (max-width:640px){.stat-row{flex-wrap:wrap;}.stat{flex:1 1 50%;}}
+
+/* ---------- TOC ---------- */
+.toc-list{list-style:none;margin-top:8px;padding:8px;}
+.toc-item{
+  display:flex;align-items:baseline;gap:14px;padding:18px 16px;border-radius:14px;
+  transition:background .2s ease;
+}
+.toc-num{font-family:var(--mono);font-size:12px;color:var(--ink-mute);}
+.toc-item a{font-family:var(--display);font-weight:600;font-size:clamp(18px,2.2vw,22px);flex-shrink:0;color:var(--ink);}
+.toc-leader{flex:1;border-bottom:1px dotted var(--line);height:1px;transform:translateY(-6px);min-width:24px;}
+.toc-desc{font-family:var(--sans);font-size:12.5px;color:var(--ink-mute);text-align:right;white-space:nowrap;flex-shrink:0;}
+.toc-item:hover{background:rgba(230,143,82,0.10);}
+.toc-item:hover a{color:var(--orange-deep);}
+@media (max-width:600px){.toc-item{flex-wrap:wrap;}.toc-desc{width:100%;text-align:left;}}
+
+/* ---------- BIO ---------- */
+.bio{padding:30px;}
+.bio p{color:var(--ink-soft);max-width:660px;font-size:16px;}
+.bio p + p{margin-top:16px;}
+.bio p.lead{color:var(--ink);}
+.facts{margin-top:24px;padding:8px;}
+.fact-row{display:flex;padding:14px 18px;gap:24px;}
+.fact-k{font-family:var(--mono);font-size:11px;color:var(--ink-mute);text-transform:uppercase;letter-spacing:0.05em;width:150px;flex-shrink:0;padding-top:2px;}
+.fact-v{font-family:var(--sans);font-size:15px;color:var(--ink);}
+
+/* ---------- INSTRUMENTS ---------- */
+.instrument-group{padding:20px 24px;}
+.instrument-group + .instrument-group{margin-top:10px;}
+.instrument-cat{font-family:var(--mono);font-size:11px;color:var(--orange-deep);text-transform:uppercase;letter-spacing:0.08em;width:210px;flex-shrink:0;}
+.instrument-row{display:flex;gap:24px;align-items:baseline;}
+.instrument-items{font-family:var(--sans);font-size:14.5px;color:var(--ink-soft);line-height:1.9;}
+@media (max-width:700px){.instrument-row{flex-direction:column;gap:8px;}.instrument-cat{width:auto;}}
+
+/* ---------- JOURNAL ---------- */
+.journal-entry{padding:30px;}
+.journal-entry + .journal-entry{margin-top:16px;}
+.journal-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 20px;}
+.journal-role{font-family:var(--display);font-weight:700;font-size:20px;color:var(--ink);}
+.journal-org{font-family:var(--sans);font-weight:600;color:var(--orange-deep);font-size:14.5px;margin-top:3px;}
+.journal-time{font-family:var(--mono);font-size:11px;color:var(--ink-mute);white-space:nowrap;}
+.journal-loc{font-family:var(--mono);font-size:10.5px;color:var(--ink-mute);margin-top:4px;}
+.journal-list{margin-top:16px;color:var(--ink-soft);font-size:14.5px;max-width:700px;}
+.journal-list li{margin-bottom:10px;padding-left:18px;position:relative;list-style:none;}
+.journal-list li::before{content:'—';position:absolute;left:0;color:var(--orange);}
+
+/* ---------- PROJECTS ---------- */
+.proj-note{
+  padding:16px 22px;margin-bottom:16px;
+  font-family:var(--sans);font-size:12.5px;color:var(--ink-mute);font-style:italic;
+}
+.project-entry{padding:28px 30px;}
+.project-entry + .project-entry{margin-top:16px;}
+.project-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.project-fig{font-family:var(--mono);font-size:11px;color:var(--ink-mute);}
+.project-title{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink);}
+.project-desc{margin-top:12px;color:var(--ink-soft);font-size:14.5px;max-width:660px;}
+.project-tags{margin-top:12px;font-family:var(--mono);font-size:10.5px;color:var(--orange-deep);letter-spacing:0.03em;}
+
+/* ---------- HONORS ---------- */
+.honor-row{display:flex;gap:14px;padding:13px 22px;}
+.honor-mark{font-family:var(--display);font-weight:700;color:var(--orange-deep);font-size:13px;flex-shrink:0;}
+.honor-text{color:var(--ink-soft);font-size:14.5px;}
+
+/* ---------- CONTACT ---------- */
+.contact-hero{padding:60px 0 40px;text-align:center;position:relative;z-index:1;}
+.contact-hero h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(28px,4.6vw,42px);max-width:680px;margin:16px auto 0;line-height:1.2;color:var(--ink);
+}
+.contact-hero .intro{max-width:520px;margin:18px auto 0;color:var(--ink-soft);}
+.contact-list{max-width:460px;margin:44px auto 0;padding:8px;}
+.contact-row{
+  display:flex;justify-content:space-between;align-items:baseline;padding:15px 18px;
+  font-family:var(--sans);font-size:14.5px;border-radius:14px;transition:background .2s ease;
+}
+.contact-row:hover{background:rgba(230,143,82,0.08);}
+.contact-row .k{color:var(--ink-mute);text-transform:uppercase;font-size:10.5px;letter-spacing:0.06em;font-family:var(--mono);}
+.contact-row a{color:var(--ink);font-weight:500;transition:color .15s ease;}
+.contact-row a:hover{color:var(--orange-deep);}
+
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;}}
+
+</style>
+<link href="i18n.css" rel="stylesheet"/><script defer="" src="i18n.js"></script></head>
+<body>
+<header class="site-header">
+<div class="wrap">
+<div class="wordmark"><i18n-en>Sulaiman Al-Akabri</i18n-en><i18n-de>Sulaiman Al-Akabri</i18n-de><i18n-ar>Sulaiman Al-Akabri</i18n-ar><span><i18n-en>Robotics &amp; Systems Integration</i18n-en><i18n-de>Robotik &amp; Systemintegration</i18n-de><i18n-ar>الروبوتات وتكامل الأنظمة</i18n-ar></span></div>
+<div class="nav-cluster"><nav class="site-nav">
+<a href="index.html"><i18n-en>Home</i18n-en><i18n-de>Startseite</i18n-de><i18n-ar>الرئيسية</i18n-ar></a>
+<div class="nav-dropdown">
+<a href="projects.html"><i18n-en>Projects</i18n-en><i18n-de>Projekte</i18n-de><i18n-ar>المشاريع</i18n-ar></a>
+<div class="nav-dropdown-menu">
+<a href="stockbot.html"><i18n-en>StockBot</i18n-en><i18n-de>StockBot</i18n-de><i18n-ar>StockBot</i18n-ar></a>
+<a href="signal-analysis.html"><i18n-en>Signal Analysis</i18n-en><i18n-de>Signalanalyse</i18n-de><i18n-ar>تحليل الإشارات</i18n-ar></a>
+<a href="hydration-robot.html"><i18n-en>Hydration Robot</i18n-en><i18n-de>Hydrations-Roboter</i18n-de><i18n-ar>روبوت الترطيب</i18n-ar></a>
+<a href="design-thinking.html"><i18n-en>Design Thinking</i18n-en><i18n-de>Design Thinking</i18n-de><i18n-ar>التفكير التصميمي</i18n-ar></a>
+</div>
+</div>
+<a class="active" href="experience.html"><i18n-en>Experience</i18n-en><i18n-de>Erfahrung</i18n-de><i18n-ar>الخبرة</i18n-ar></a>
+<a href="about.html"><i18n-en>About</i18n-en><i18n-de>Über mich</i18n-de><i18n-ar>نبذة عني</i18n-ar></a>
+</nav><div aria-label="Language" class="lang-switch" role="group"><button data-lang-btn="en" type="button">EN</button><button data-lang-btn="de" type="button">DE</button><button data-lang-btn="ar" type="button">AR</button></div></div>
+</div>
+</header>
+<main>
+<section class="page-hero">
+<div class="wrap">
+<h1><i18n-en>Work Experience</i18n-en><i18n-de>Berufserfahrung</i18n-de><i18n-ar>الخبرة العملية</i18n-ar></h1>
+<p class="intro"><i18n-en>Chronological, from the most recent site work back to the first robots I ever put hands on.</i18n-en><i18n-de>Chronologisch, von der aktuellsten Arbeit vor Ort zurück bis zu den ersten Robotern, mit denen ich je gearbeitet habe.</i18n-de><i18n-ar>بالترتيب الزمني، من أحدث عمل ميداني وصولاً إلى أول روبوتات عملت عليها على الإطلاق.</i18n-ar></p>
+</div>
+</section>
+<section style="padding-top:0;">
+<div class="wrap">
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>System Installation Engineer</i18n-en><i18n-de>Systeminstallationsingenieur</i18n-de><i18n-ar>مهندس تركيب أنظمة</i18n-ar></div>
+<div class="journal-org"><i18n-en>JBT Automated Systems · Full-time</i18n-en><i18n-de>JBT Automated Systems · Vollzeit</i18n-de><i18n-ar>JBT Automated Systems · دوام كامل</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>Dec 2023 — May 2026</i18n-en><i18n-de>Dec 2023 — May 2026</i18n-de><i18n-ar>Dec 2023 — May 2026</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Washington, United States · Hybrid</i18n-en><i18n-de>Washington, USA · Hybrid</i18n-de><i18n-ar>واشنطن، الولايات المتحدة · هجين</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><i18n-en>Install autonomous vehicle systems and peripheral equipment.</i18n-en><i18n-de>Installation autonomer Fahrzeugsysteme und Peripheriegeräte.</i18n-de><i18n-ar>تركيب أنظمة المركبات ذاتية القيادة والمعدات الطرفية.</i18n-ar></li>
+<li><i18n-en>Perform system testing, troubleshooting, and debugging.</i18n-en><i18n-de>Durchführung von Systemtests, Fehlersuche und Fehlerbehebung.</i18n-de><i18n-ar>إجراء اختبار الأنظمة واستكشاف الأخطاء وإصلاحها.</i18n-ar></li>
+<li><i18n-en>Modify equipment and software for performance improvements.</i18n-en><i18n-de>Anpassung von Geräten und Software zur Leistungsverbesserung.</i18n-de><i18n-ar>تعديل المعدات والبرمجيات لتحسين الأداء.</i18n-ar></li>
+<li><i18n-en>Track and analyze system performance metrics.</i18n-en><i18n-de>Verfolgung und Analyse von Systemleistungskennzahlen.</i18n-de><i18n-ar>تتبع وتحليل مقاييس أداء النظام.</i18n-ar></li>
+<li><i18n-en>Train customers on system operation and provide technical support.</i18n-en><i18n-de>Schulung von Kunden im Systembetrieb und Bereitstellung von technischem Support.</i18n-de><i18n-ar>تدريب العملاء على تشغيل النظام وتقديم الدعم الفني.</i18n-ar></li>
+<li><i18n-en>Write reports, manuals, and business correspondence.</i18n-en><i18n-de>Erstellung von Berichten, Handbüchern und Geschäftskorrespondenz.</i18n-de><i18n-ar>كتابة التقارير والأدلة والمراسلات التجارية.</i18n-ar></li>
+<li><i18n-en>Apply skills in software Python, CAD (AutoCAD), and various engineering disciplines.</i18n-en><i18n-de>Anwendung von Kenntnissen in der Software Python, CAD (AutoCAD) und verschiedenen Ingenieurdisziplinen.</i18n-de><i18n-ar>تطبيق المهارات في برمجيات Python وCAD (AutoCAD) ومختلف التخصصات الهندسية.</i18n-ar></li>
+<li><i18n-en>Collaborate in Scrum teams to deliver engineering solutions and drive continuous improvement.</i18n-en><i18n-de>Zusammenarbeit in Scrum-Teams zur Bereitstellung technischer Lösungen und Förderung kontinuierlicher Verbesserung.</i18n-de><i18n-ar>التعاون ضمن فرق Scrum لتقديم الحلول الهندسية ودفع التحسين المستمر.</i18n-ar></li>
+</ul>
+</div>
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>Reserve Engineer</i18n-en><i18n-de>Reserveingenieur</i18n-de><i18n-ar>مهندس احتياطي</i18n-ar></div>
+<div class="journal-org"><i18n-en>Cobalt Robotics · Contract</i18n-en><i18n-de>Cobalt Robotics · Vertrag</i18n-de><i18n-ar>Cobalt Robotics · عقد</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>May 2023 — Jun 2025</i18n-en><i18n-de>May 2023 — Jun 2025</i18n-de><i18n-ar>May 2023 — Jun 2025</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Seattle, Washington, United States · On-site</i18n-en><i18n-de>Seattle, Washington, USA · Vor Ort</i18n-de><i18n-ar>سياتل، واشنطن، الولايات المتحدة · حضوري</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><i18n-en>Provided on-site support for the maintenance of robots.</i18n-en><i18n-de>Bereitstellung von Vor-Ort-Support für die Wartung von Robotern.</i18n-de><i18n-ar>تقديم الدعم الميداني لصيانة الروبوتات.</i18n-ar></li>
+<li><i18n-en>Assisted remote specialists and engineers with hands-on troubleshooting.</i18n-en><i18n-de>Unterstützung von Remote-Spezialisten und Ingenieuren bei der praktischen Fehlerbehebung.</i18n-de><i18n-ar>مساعدة المتخصصين والمهندسين عن بُعد في استكشاف الأخطاء وإصلاحها عملياً.</i18n-ar></li>
+<li><i18n-en>Conducted repairs and maintenance on robots as required.</i18n-en><i18n-de>Durchführung von Reparaturen und Wartung an Robotern nach Bedarf.</i18n-de><i18n-ar>إجراء الإصلاحات والصيانة للروبوتات حسب الحاجة.</i18n-ar></li>
+<li><i18n-en>Configured and set up new robots.</i18n-en><i18n-de>Konfiguration und Einrichtung neuer Roboter.</i18n-de><i18n-ar>تهيئة وإعداد روبوتات جديدة.</i18n-ar></li>
+<li><i18n-en>Mapped out the areas within facilities for robot patrols.</i18n-en><i18n-de>Kartierung der Bereiche innerhalb von Einrichtungen für Roboterpatrouillen.</i18n-de><i18n-ar>رسم خرائط للمناطق داخل المنشآت لدوريات الروبوتات.</i18n-ar></li>
+</ul>
+</div>
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>STEAM Teacher</i18n-en><i18n-de>STEAM-Lehrer</i18n-de><i18n-ar>معلم STEAM</i18n-ar></div>
+<div class="journal-org"><i18n-en>Cordoba Academy · Part-time</i18n-en><i18n-de>Cordoba Academy · Teilzeit</i18n-de><i18n-ar>Cordoba Academy · دوام جزئي</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>Sep 2022 — Jun 2023</i18n-en><i18n-de>Sep 2022 — Jun 2023</i18n-de><i18n-ar>Sep 2022 — Jun 2023</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Lynnwood, Washington, United States</i18n-en><i18n-de>Lynnwood, Washington, USA</i18n-de><i18n-ar>لينوود، واشنطن، الولايات المتحدة</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><i18n-en>Teach Math, Science, Social Studies, and Language Arts to a diverse group of students.</i18n-en><i18n-de>Unterricht in Mathematik, Naturwissenschaften, Sozialkunde und Sprachkünsten für eine vielfältige Gruppe von Schülern.</i18n-de><i18n-ar>تدريس الرياضيات والعلوم والدراسات الاجتماعية والفنون اللغوية لمجموعة متنوعة من الطلاب.</i18n-ar></li>
+<li><i18n-en>Developed and implemented engaging and effective lesson plans that fostered critical thinking and academic growth.</i18n-en><i18n-de>Entwicklung und Umsetzung ansprechender und effektiver Unterrichtspläne, die kritisches Denken und akademisches Wachstum förderten.</i18n-de><i18n-ar>تطوير وتنفيذ خطط دروس جذابة وفعّالة عزّزت التفكير النقدي والنمو الأكاديمي.</i18n-ar></li>
+<li><i18n-en>Promoted real-world applications of interdisciplinary topics and encouraged student exploration.</i18n-en><i18n-de>Förderung realer Anwendungen interdisziplinärer Themen und Ermutigung der Schüler zur eigenständigen Erkundung.</i18n-de><i18n-ar>تعزيز التطبيقات الواقعية للمواضيع متعددة التخصصات وتشجيع الطلاب على الاستكشاف.</i18n-ar></li>
+<li><i18n-en>Fostered a positive and inclusive learning environment that supported student success and well-being.</i18n-en><i18n-de>Schaffung einer positiven und inklusiven Lernumgebung, die den Erfolg und das Wohlbefinden der Schüler unterstützte.</i18n-de><i18n-ar>تهيئة بيئة تعليمية إيجابية وشاملة دعمت نجاح الطلاب ورفاهيتهم.</i18n-ar></li>
+</ul>
+</div>
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>Capstone Robotics Developer</i18n-en><i18n-de>Capstone-Robotik-Entwickler</i18n-de><i18n-ar>مطوّر روبوتات (Capstone)</i18n-ar></div>
+<div class="journal-org"><i18n-en>Global Innovation Exchange (GIX)</i18n-en><i18n-de>Global Innovation Exchange (GIX)</i18n-de><i18n-ar>Global Innovation Exchange (GIX)</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>Jun 2021 — Dec 2021</i18n-en><i18n-de>Jun 2021 — Dec 2021</i18n-de><i18n-ar>Jun 2021 — Dec 2021</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Bellevue, Washington, United States</i18n-en><i18n-de>Bellevue, Washington, USA</i18n-de><i18n-ar>بيلفيو، واشنطن، الولايات المتحدة</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><strong><i18n-en>Kinova Gen3 Robotic Arm Grasping:</i18n-en><i18n-de>Kinova Gen3 Roboterarm-Greifen:</i18n-de><i18n-ar>الإمساك بذراع Kinova Gen3 الروبوتية:</i18n-ar></strong><i18n-en> developed pick-and-place code using Python and OpenCV; ran it on the Kinova Gen3 to detect objects via ArUco fiducial markers, testing and debugging with the arm.</i18n-en><i18n-de> Entwicklung von Pick-and-Place-Code mit Python und OpenCV; Ausführung auf dem Kinova Gen3 zur Objekterkennung über ArUco-Fiducial-Marker, mit Testen und Debuggen am Arm.</i18n-de><i18n-ar> تطوير كود الالتقاط والوضع (pick-and-place) باستخدام Python وOpenCV؛ تشغيله على Kinova Gen3 للكشف عن الأجسام عبر علامات ArUco المرجعية، مع الاختبار وتصحيح الأخطاء باستخدام الذراع.</i18n-ar></li>
+<li><strong><i18n-en>Fetch Mobile Manipulator Grasping:</i18n-en><i18n-de>Fetch Mobile Manipulator Greifen:</i18n-de><i18n-ar>الإمساك بواسطة Fetch Mobile Manipulator:</i18n-ar></strong><i18n-en> created the map for the Fetch Mobile Manipulator and helped test as the robot navigated the environment.</i18n-en><i18n-de> Erstellung der Karte für den Fetch Mobile Manipulator und Unterstützung beim Testen, während der Roboter die Umgebung navigierte.</i18n-de><i18n-ar> إنشاء الخريطة الخاصة بـ Fetch Mobile Manipulator والمساعدة في الاختبار أثناء تنقل الروبوت داخل البيئة.</i18n-ar></li>
+<li><strong><i18n-en>User Research:</i18n-en><i18n-de>Nutzerforschung:</i18n-de><i18n-ar>بحث المستخدم:</i18n-ar></strong><i18n-en> ran competitive analysis of similar projects and collaborated with the team on proposition value.</i18n-en><i18n-de> Durchführung einer Wettbewerbsanalyse ähnlicher Projekte und Zusammenarbeit mit dem Team am Wertversprechen.</i18n-de><i18n-ar> إجراء تحليل تنافسي لمشاريع مماثلة والتعاون مع الفريق بشأن القيمة المقترحة.</i18n-ar></li>
+<li><strong><i18n-en>Testing Plan:</i18n-en><i18n-de>Testplan:</i18n-de><i18n-ar>خطة الاختبار:</i18n-ar></strong><i18n-en> arranged the usability-test schedule and ran surveys with teammates to gather feedback.</i18n-en><i18n-de> Organisation des Zeitplans für Usability-Tests und Durchführung von Umfragen mit Teammitgliedern zur Sammlung von Feedback.</i18n-de><i18n-ar> تنظيم جدول اختبارات قابلية الاستخدام وإجراء استبيانات مع أعضاء الفريق لجمع الملاحظات.</i18n-ar></li>
+</ul>
+</div>
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>Robotics Student</i18n-en><i18n-de>Robotik-Student</i18n-de><i18n-ar>طالب روبوتات</i18n-ar></div>
+<div class="journal-org"><i18n-en>Global Innovation Exchange (GIX)</i18n-en><i18n-de>Global Innovation Exchange (GIX)</i18n-de><i18n-ar>Global Innovation Exchange (GIX)</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>Mar 2021 — Jun 2021</i18n-en><i18n-de>Mar 2021 — Jun 2021</i18n-de><i18n-ar>Mar 2021 — Jun 2021</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Bellevue, Washington, United States</i18n-en><i18n-de>Bellevue, Washington, USA</i18n-de><i18n-ar>بيلفيو، واشنطن، الولايات المتحدة</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><i18n-en>Built a foundation in Human-Robot Interaction (HRI) — designing, programming, and deploying teleoperated and autonomous mobile robots across simulation and real-world environments.</i18n-en><i18n-de>Aufbau einer Grundlage in Human-Robot Interaction (HRI) — Entwurf, Programmierung und Einsatz teleoperierter und autonomer mobiler Roboter in Simulations- und realen Umgebungen.</i18n-de><i18n-ar>بناء أساس متين في التفاعل بين الإنسان والروبوت (HRI) — تصميم وبرمجة ونشر روبوتات متنقلة يتم التحكم فيها عن بُعد وأخرى مستقلة عبر بيئات المحاكاة والبيئات الواقعية.</i18n-ar></li>
+<li><i18n-en>Covered robotic configurations, applications, sensors, actuators, and control for autonomous mobile robots and robotic arms.</i18n-en><i18n-de>Behandlung von robotischen Konfigurationen, Anwendungen, Sensoren, Aktoren und Steuerung für autonome mobile Roboter und Roboterarme.</i18n-de><i18n-ar>تغطية تكوينات الروبوتات وتطبيقاتها وأجهزة الاستشعار والمشغلات والتحكم للروبوتات المتنقلة المستقلة والأذرع الروبوتية.</i18n-ar></li>
+<li><i18n-en>Programmed a Fetch robot for goal-oriented tasks; studied human-centered robotics architecture, perception, motion planning, manipulation, and grasping.</i18n-en><i18n-de>Programmierung eines Fetch-Roboters für zielorientierte Aufgaben; Studium menschzentrierter Robotikarchitektur, Wahrnehmung, Bewegungsplanung, Manipulation und Greifen.</i18n-de><i18n-ar>برمجة روبوت Fetch لأداء مهام موجهة نحو الأهداف؛ ودراسة بنية الروبوتات المتمحورة حول الإنسان، والإدراك، وتخطيط الحركة، والتلاعب، والإمساك.</i18n-ar></li>
+</ul>
+</div>
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>Tech Support Intern</i18n-en><i18n-de>Praktikant im technischen Support</i18n-de><i18n-ar>متدرب دعم فني</i18n-ar></div>
+<div class="journal-org"><i18n-en>Ministry of Hajj and Umrah · Internship</i18n-en><i18n-de>Ministerium für Hadsch und Umrah · Praktikum</i18n-de><i18n-ar>وزارة الحج والعمرة · تدريب</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>Sep 2018 — Dec 2018</i18n-en><i18n-de>Sep 2018 — Dec 2018</i18n-de><i18n-ar>Sep 2018 — Dec 2018</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Makkah, Saudi Arabia</i18n-en><i18n-de>Mekka, Saudi-Arabien</i18n-de><i18n-ar>مكة المكرمة، السعودية</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><i18n-en>Troubleshot and resolved a wide range of technical issues, including hardware, software, and network problems.</i18n-en><i18n-de>Fehlerbehebung und Lösung eines breiten Spektrums technischer Probleme, einschließlich Hardware-, Software- und Netzwerkproblemen.</i18n-de><i18n-ar>استكشاف وحل مجموعة واسعة من المشكلات التقنية، بما في ذلك مشكلات الأجهزة والبرمجيات والشبكات.</i18n-ar></li>
+<li><i18n-en>Documented and tracked all incidents, requests, and resolutions using support management software.</i18n-en><i18n-de>Dokumentation und Verfolgung aller Vorfälle, Anfragen und Lösungen mithilfe von Support-Management-Software.</i18n-de><i18n-ar>توثيق وتتبع جميع الحوادث والطلبات والحلول باستخدام برامج إدارة الدعم.</i18n-ar></li>
+<li><i18n-en>Maintained a high level of customer satisfaction by promptly responding to inquiries, addressing concerns, and following up to ensure resolution.</i18n-en><i18n-de>Aufrechterhaltung eines hohen Kundenzufriedenheitsniveaus durch schnelle Beantwortung von Anfragen, Bearbeitung von Anliegen und Nachverfolgung zur Sicherstellung der Lösung.</i18n-de><i18n-ar>الحفاظ على مستوى عالٍ من رضا العملاء من خلال الاستجابة السريعة للاستفسارات ومعالجة المخاوف والمتابعة لضمان الحل.</i18n-ar></li>
+<li><i18n-en>Continuously updated technical knowledge and skills through training and self-study.</i18n-en><i18n-de>Kontinuierliche Aktualisierung technischer Kenntnisse und Fähigkeiten durch Schulungen und Selbststudium.</i18n-de><i18n-ar>التحديث المستمر للمعرفة والمهارات التقنية من خلال التدريب والدراسة الذاتية.</i18n-ar></li>
+<li><i18n-en>Collaborated with cross-functional teams to resolve complex technical issues and improve overall processes.</i18n-en><i18n-de>Zusammenarbeit mit funktionsübergreifenden Teams zur Lösung komplexer technischer Probleme und zur Verbesserung der Gesamtprozesse.</i18n-de><i18n-ar>التعاون مع فرق متعددة الوظائف لحل المشكلات التقنية المعقدة وتحسين العمليات بشكل عام.</i18n-ar></li>
+</ul>
+</div>
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>Android Developer</i18n-en><i18n-de>Android-Entwickler</i18n-de><i18n-ar>مطور Android</i18n-ar></div>
+<div class="journal-org"><i18n-en>ClickApps Inc. · Internship</i18n-en><i18n-de>ClickApps Inc. · Praktikum</i18n-de><i18n-ar>ClickApps Inc. · تدريب</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>Jun 2017 — Oct 2017</i18n-en><i18n-de>Jun 2017 — Oct 2017</i18n-de><i18n-ar>Jun 2017 — Oct 2017</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Mukalla, Hadramaut Governorate, Yemen · On-site</i18n-en><i18n-de>Mukalla, Gouvernement Hadramaut, Jemen · Vor Ort</i18n-de><i18n-ar>المكلا، محافظة حضرموت، اليمن · حضوري</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><i18n-en>Worked on the development and maintenance of Android mobile applications.</i18n-en><i18n-de>Mitwirkung an der Entwicklung und Wartung von mobilen Android-Anwendungen.</i18n-de><i18n-ar>العمل على تطوير وصيانة تطبيقات الجوال الخاصة بنظام Android.</i18n-ar></li>
+<li><i18n-en>Collaborated with a team of developers to deliver high-quality, scalable, and user-friendly apps.</i18n-en><i18n-de>Zusammenarbeit mit einem Entwicklerteam zur Bereitstellung hochwertiger, skalierbarer und benutzerfreundlicher Apps.</i18n-de><i18n-ar>التعاون مع فريق من المطورين لتقديم تطبيقات عالية الجودة وقابلة للتوسع وسهلة الاستخدام.</i18n-ar></li>
+<li><i18n-en>Utilized Java and Android SDK to create custom UI components and integrate APIs.</i18n-en><i18n-de>Einsatz von Java und Android SDK zur Erstellung benutzerdefinierter UI-Komponenten und Integration von APIs.</i18n-de><i18n-ar>استخدام Java وAndroid SDK لإنشاء مكونات واجهة مستخدم مخصصة ودمج واجهات برمجة التطبيقات (APIs).</i18n-ar></li>
+<li><i18n-en>Participated in code reviews and contributed to software development best practices.</i18n-en><i18n-de>Teilnahme an Code-Reviews und Beitrag zu Best Practices in der Softwareentwicklung.</i18n-de><i18n-ar>المشاركة في مراجعات الكود والمساهمة في أفضل ممارسات تطوير البرمجيات.</i18n-ar></li>
+<li><i18n-en>Assisted in debugging and fixing issues related to application performance and functionality.</i18n-en><i18n-de>Unterstützung beim Debuggen und Beheben von Problemen im Zusammenhang mit Anwendungsleistung und -funktionalität.</i18n-de><i18n-ar>المساعدة في تصحيح الأخطاء وإصلاح المشكلات المتعلقة بأداء التطبيق ووظائفه.</i18n-ar></li>
+<li><i18n-en>Gained hands-on experience in agile development methodology and software development life cycle.</i18n-en><i18n-de>Erwerb praktischer Erfahrung in agiler Entwicklungsmethodik und im Softwareentwicklungs-Lebenszyklus.</i18n-de><i18n-ar>اكتساب خبرة عملية في منهجية التطوير الرشيق (Agile) ودورة حياة تطوير البرمجيات.</i18n-ar></li>
+</ul>
+</div>
+<div class="journal-entry glass">
+<div class="journal-head">
+<div>
+<div class="journal-role"><i18n-en>Tech Support</i18n-en><i18n-de>Technischer Support</i18n-de><i18n-ar>الدعم الفني</i18n-ar></div>
+<div class="journal-org"><i18n-en>Yemen Tech for Technology · Full-time</i18n-en><i18n-de>Yemen Tech for Technology · Vollzeit</i18n-de><i18n-ar>Yemen Tech for Technology · دوام كامل</i18n-ar></div>
+</div>
+<div style="text-align:right;">
+<div class="journal-time"><i18n-en>Mar 2010 — Apr 2011</i18n-en><i18n-de>Mar 2010 — Apr 2011</i18n-de><i18n-ar>Mar 2010 — Apr 2011</i18n-ar></div>
+<div class="journal-loc"><i18n-en>Mukalla, Hadramaut Governorate, Yemen</i18n-en><i18n-de>Mukalla, Gouvernement Hadramaut, Jemen</i18n-de><i18n-ar>المكلا، محافظة حضرموت، اليمن</i18n-ar></div>
+</div>
+</div>
+<ul class="journal-list">
+<li><i18n-en>Worked in the maintenance section to troubleshoot and repair hardware and software issues with computers.</i18n-en><i18n-de>Arbeit in der Wartungsabteilung zur Fehlerbehebung und Reparatur von Hardware- und Softwareproblemen an Computern.</i18n-de><i18n-ar>العمل في قسم الصيانة لاستكشاف وإصلاح مشكلات الأجهزة والبرمجيات المتعلقة بالحواسيب.</i18n-ar></li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="glass">
+<p><i18n-en>© 2026 Sulaiman Al-Akabri · Seattle, WA</i18n-en><i18n-de>© 2026 Sulaiman Al-Akabri · Seattle, WA</i18n-de><i18n-ar>© 2026 Sulaiman Al-Akabri · سياتل، واشنطن</i18n-ar></p>
+<div class="footer-links">
+<a href="mailto:sulaimanalakabari@gmail.com"><i18n-en>Email</i18n-en><i18n-de>E-Mail</i18n-de><i18n-ar>البريد الإلكتروني</i18n-ar></a>
+<a href="https://www.linkedin.com/in/sulaiman-al-akabri/" rel="noopener" target="_blank"><i18n-en>LinkedIn</i18n-en><i18n-de>LinkedIn</i18n-de><i18n-ar>LinkedIn</i18n-ar></a>
+<a href="https://github.com/Suli350" rel="noopener" target="_blank"><i18n-en>GitHub</i18n-en><i18n-de>GitHub</i18n-de><i18n-ar>GitHub</i18n-ar></a>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
